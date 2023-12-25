@@ -1,2 +1,6 @@
-package com.example.taskflow.enums;public class UserRole {
+package com.example.taskflow.enums;
+
+public enum UserRole {
+    ADMIN,
+    USER
 }
