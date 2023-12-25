@@ -31,12 +31,12 @@ public class TaskServiceImpl implements TaskService {
     @Override
     public Task updateTask(Task task, Long id) {
         Task existingTask = getTaskById(id);
-        return taskRepository.save(task);
+        existingTask.setTitle(task.getTitle());
+        return taskRepository.save(existingTask);
     }
 
     @Override
     public void deleteTask(Long id) {
         taskRepository.deleteById(id);
-
     }
 }

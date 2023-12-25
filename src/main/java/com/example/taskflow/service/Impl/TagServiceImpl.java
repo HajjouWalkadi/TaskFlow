@@ -33,7 +33,8 @@ public class TagServiceImpl implements TagService {
     @Override
     public Tags updateTag(Tags tag, Long id) {
         Tags existingTag = getTagById(id);
-        return tagRepository.save(tag);
+        existingTag.setName(tag.getName());
+        return tagRepository.save(existingTag);
     }
 
     @Override
@@ -41,8 +42,5 @@ public class TagServiceImpl implements TagService {
         tagRepository.deleteById(id);
     }
 
-    /*@Override
-    public List<Tags> getAllTagsPaginated(PageRequest pageRequest) {
-        return tagRepository.findAll(pageRequest).getContent();
-    }*/
+
 }
