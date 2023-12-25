@@ -17,7 +17,7 @@ public class Tags {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @NotBlank(message = "")
+    //@NotBlank(message = "")
     private String name;
 
     @ManyToMany(mappedBy = "tags")
