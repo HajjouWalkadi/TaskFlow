@@ -3,7 +3,6 @@ package com.example.taskflow.dto;
 import com.example.taskflow.entities.Tags;
 import com.example.taskflow.entities.Task;
 import com.example.taskflow.entities.User;
-import com.example.taskflow.enums.TaskActionType;
 import com.example.taskflow.enums.TaskStatus;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -31,8 +30,6 @@ public class TaskRequestDTO {
     @NotBlank(message = "Description is required")
     private String description;
 
-    @NotNull(message = "Completed status is required")
-    private Boolean completed;
 
     @NotNull(message = "Start date of task cannot be null")
     @FutureOrPresent(message = "Start date must be in the present or future")
@@ -40,14 +37,11 @@ public class TaskRequestDTO {
 
     @NotNull(message = "End date of task cannot be null")
     private LocalDateTime endDate;
-    private LocalDateTime modificationDate;
 
     @NotNull(message = "At least one status is required")
     @Enumerated(EnumType.STRING)
     private TaskStatus status;
 
-    @Enumerated(EnumType.STRING)
-    private TaskActionType actionType;
 
     @NotEmpty(message = "Tag is required")
     @Size(min = 3, message = "At least three tags are required")
@@ -58,5 +52,7 @@ public class TaskRequestDTO {
 
     @NotNull(message = "AssignedTo is required")
     private Long assignedToId;
+
+
 }
 

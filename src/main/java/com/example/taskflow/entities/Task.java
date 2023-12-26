@@ -1,6 +1,5 @@
 package com.example.taskflow.entities;
 
-import com.example.taskflow.enums.TaskActionType;
 import com.example.taskflow.enums.TaskStatus;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
@@ -28,9 +27,6 @@ public class Task {
     @NotBlank(message = "Description is required")
     private String description;
 
-    @NotNull(message = "Completed status is required")
-    private Boolean completed;
-
     @NotNull(message = "Start date of task cannot be null")
     @FutureOrPresent(message = "Start date must be in the present or future")
     private LocalDateTime startDate;
@@ -38,13 +34,10 @@ public class Task {
     @NotNull(message = "End date of task cannot be null")
     private LocalDateTime endDate;
 
-    private LocalDateTime modificationDate;
 
     @Enumerated(EnumType.STRING)
     private TaskStatus status;
 
-    @Enumerated(EnumType.STRING)
-    private TaskActionType actionType;
 
     @ManyToMany
     private List<Tags> tags;

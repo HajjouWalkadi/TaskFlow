@@ -1,6 +1,5 @@
 package com.example.taskflow.entities;
 
-import com.example.taskflow.enums.AssignmentTaskType;
 import com.example.taskflow.enums.UserRole;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
@@ -40,8 +39,6 @@ public class User {
     @OneToMany(mappedBy = "createdBy")
     private List<Task> tasksCreated;
 
-    @Enumerated(EnumType.STRING)
-    private AssignmentTaskType assignmentType;
 
 }
 
